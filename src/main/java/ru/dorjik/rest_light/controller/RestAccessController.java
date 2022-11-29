@@ -5,7 +5,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import ru.dorjik.rest_light.model.User;
-import ru.dorjik.rest_light.service.RoleService;
 import ru.dorjik.rest_light.service.UserService;
 
 
@@ -15,11 +14,9 @@ import java.util.List;
 @RequestMapping("/api")
 public class RestAccessController {
 
-    private RoleService roleService;
-    private UserService userService;
+    private final UserService userService;
 
-    public RestAccessController(RoleService roleService, UserService userService) {
-        this.roleService = roleService;
+    public RestAccessController(UserService userService) {
         this.userService = userService;
     }
 
